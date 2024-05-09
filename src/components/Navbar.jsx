@@ -17,7 +17,7 @@ else greetings = "Hey there, Sunflower!"
     <div className="navbar-outer">
       <div className="navbar-inner">
         <span className="mt-1 p-0"> {greetings} </span>
-        <span className="font-bold text-2xl">What-To-Do-?</span>
+        <span className="font-extrabold text-2xl">What-To-Do-?</span>
         <span className="mt-1 p-0"> {today} </span>
       </div>
     </div>
