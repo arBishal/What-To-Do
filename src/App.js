@@ -1,12 +1,11 @@
-import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <>
-      <div className="text-3xl text-cyan-500 underline">
-        hayre
-      </div>
-    </>
+    <div>
+      <Navbar/>
+    </div>
   );
 }
 
