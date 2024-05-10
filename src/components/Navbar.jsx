@@ -9,7 +9,7 @@ export default function Navbar() {
 let hour = date.getHours();
 console.log(hour);
 let greetings = "";
-if(hour>18 || hour<6) greetings = "Hey there, Night Owl!"
+if(hour>18 || hour<6) greetings = "Hey there, Moonflower!"
 else greetings = "Hey there, Sunflower!"
 
   
