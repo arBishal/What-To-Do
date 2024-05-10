@@ -36,13 +36,13 @@ export default function Navbar() {
   else greetings = "Hey there, Sunflower!";
 
   return (
-    <div className="border-b-[1px] bg-white flex justify-center align-middle">
-      <div className="max-w-screen-lg w-full text-black px-6 py-4 flex flex-row items-center justify-between">
+    <div className="border-b-[1px] bg-white px-6 py-4 flex justify-center align-middle">
+      <div className="max-w-screen-md w-full text-black flex flex-row gap-2 items-center justify-between">
         <span className="font-extrabold text-xl sm:text-2xl text-center order-1 sm:order-2">
           WhatToDo?
         </span>
         <div className="flex flex-col justify-center items-end sm:contents order-2">
-          <span className="mt-1 p-0 text-sm sm:text-base order-2 sm:order-1">
+          <span className="mt-1 p-0 text-sm sm:text-base text-right order-2 sm:order-1">
             {greetings}
           </span>
           <span className="mt-1 p-0 text-sm sm:text-base text-right order-3">
