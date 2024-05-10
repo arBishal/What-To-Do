@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  .navbar-outer {
-    @apply border-b-[1px] bg-white flex justify-center align-middle;
-  }
-  .navbar-inner {
-    @apply max-w-screen-lg w-full text-black px-6 py-4 flex justify-between;
-  }
-
   .body {
     @apply bg-neutral-50 w-full h-full px-6 py-4 flex flex-col justify-start items-center;
   }
