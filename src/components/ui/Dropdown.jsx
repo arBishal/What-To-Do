@@ -10,7 +10,7 @@ export const Dropdown = ({ label, name, value, onChange, options }) => {
         className="border-[1px] border-neutral-300 px-2 py-2 rounded-sm text-sm"
         required
       >
-        <option hidden>
+        <option value="" hidden>
           Select Priority
         </option>
         {options.map((element, i) => (
