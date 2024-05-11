@@ -10,6 +10,7 @@ export const Input = ({ label, name, value, onChange, type, placeholder }) => {
         id={name}
         onChange={onChange}
         className="border-[1px] border-neutral-300 px-2 py-2 rounded-sm text-sm"
+        required
       />
     </div>
   );

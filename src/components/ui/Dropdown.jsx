@@ -8,7 +8,11 @@ export const Dropdown = ({ label, name, value, onChange, options }) => {
         value={value}
         onChange={onChange}
         className="border-[1px] border-neutral-300 px-2 py-2 rounded-sm text-sm"
+        required
       >
+        <option hidden>
+          Select Priority
+        </option>
         {options.map((element, i) => (
           <option key={i} value={element.value}>
             {element.label}
