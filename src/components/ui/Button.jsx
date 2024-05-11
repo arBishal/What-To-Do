@@ -1,6 +1,6 @@
-export default function Button({children}) {
+export const Button = ({children}) => {
     return (
-        <span className="bg-black p-2 rounded-full">
+        <span className="bg-neutral-900 p-2 rounded-full">
             {children}
         </span>
     );

@@ -1,4 +1,4 @@
-import cat from "../../resources/cat-for-to-do.png";
+import cat from "../../../resources/cat-for-to-do.png";
 
 export default function NoTodoCard() {
     return(
