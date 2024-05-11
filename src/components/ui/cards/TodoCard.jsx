@@ -1,7 +1,7 @@
 import EditIcon from "../icons/EditIcon";
 import DeleteIcon from "../icons/DeleteIcon";
+import DoneIcon from "../icons/DoneIcon";
 import { Capsule } from "./Capsule";
-import { Modal } from "../Modal";
 
 export default function TodoCard({
   todo,
@@ -10,26 +10,36 @@ export default function TodoCard({
   description,
   priority,
   showModal,
-  setShowModal
-}) 
-
-{
+  setShowModal,
+}) {
+  if (description === "") {
+    const noDescription = true;
+  }
   return (
-    <div className="max-w-screen-md w-full text-black p-4 bg-white border-[1px] rounded-lg flex flex-col justify-center items-center gap-4">
+    <div className="max-w-screen-md w-full divide-y text-black p-4 bg-white border-[1px] rounded-lg flex flex-col justify-center items-center gap-2">
       <div className="w-full flex justify-between items-center gap-4">
-        <p className="text-xl font-semibold">{title}</p>
-        <Capsule priority={priority}>{priority}</Capsule>
-      </div>
-      <div className="w-full flex  justify-between items-center gap-4 botder-t-[1px]">
-        <p className="text-sm sm:text-base"> {description} </p>
-        <div className="flex items-center justify-start gap-2">
-          <span onClick={() => setShowModal(true)}>
+        <p className="text-xl font-semibold px-1">{title}</p>
+        <div className="flex items-center justify-start">
+          <span className="mr-3">
+            <Capsule priority={priority}>{priority}</Capsule>
+          </span>
+          <span
+            onClick={() => setShowModal(true)}
+            className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
+          >
             <EditIcon />
           </span>
-          <spna>
+          <span className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer">
+            <DoneIcon />
+          </span>
+          <span className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer">
             <DeleteIcon />
-          </spna>
+          </span>
         </div>
+      </div>
+
+      <div className="w-full">
+        <p className="text-sm sm:text-base px-1 mt-2"> {description} </p>
       </div>
     </div>
   );

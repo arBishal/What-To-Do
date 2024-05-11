@@ -1,7 +1,7 @@
 export const Capsule = ({ priority }) => {
-    return (
-        <span className="text-base p-1 border-1 border-neutral-500 rounded-sm bg-neutral-100">
-            {priority}
-        </span>
-    );
-}
+  return (
+    <span className="text-sm text-neutral-500 px-1 border-2 border-neutral-300 rounded bg-neutral-100">
+      {priority}
+    </span>
+  );
+};
