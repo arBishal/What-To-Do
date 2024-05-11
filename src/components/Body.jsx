@@ -4,6 +4,7 @@ import NoTodoCard from "./ui/cards/NoTodoCard";
 import PlusIcon from "./ui/icons/PlusIcon";
 import { Form } from "./ui/Form";
 import { Modal } from "./ui/Modal";
+import TodoCard from "./ui/cards/TodoCard";
 
 export default function Body() {
   const [todoData, setTodoData] = useState({
@@ -52,11 +53,15 @@ export default function Body() {
 
       {todoList.map((todo, i) => {
         return (
-          <div>
-            {todo.id}
-            {todo.title}
-            {todo.description}
-          </div>
+          <TodoCard
+            todo={todo}
+            index={i}
+            title={todo.title}
+            description={todo.description}
+            priority={todo.priority}
+            showModal={showModal}
+            setShowModal={setShowModal}
+          />
         );
       })}
 
