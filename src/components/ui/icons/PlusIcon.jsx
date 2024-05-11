@@ -4,7 +4,7 @@ export default function PlusIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="w-12 h-12"
+      className="w-12 h-12 sm:w-14 sm:h-14"
     >
       <path
         fillRule="evenodd"
