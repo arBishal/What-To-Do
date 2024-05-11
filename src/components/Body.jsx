@@ -7,30 +7,58 @@ import { Modal } from "./ui/Modal";
 
 export default function Body() {
   const [todoData, setTodoData] = useState({
+    id: "",
     title: "",
     description: "",
-    priority: ""
+    priority: "",
+    time: "",
   });
   const [todoList, setTodoList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({todoData});
+
+    setTodoData({
+      ...todoData,
+      id: todoList.length + 1,
+      time: new Date(),
+    });
+
+    console.log({ todoData });
+
     const newTodoList = [...todoList, todoData];
     setTodoList(newTodoList);
+
+    console.log(todoList);
     setShowModal(false);
   };
 
+  // console.log(todoList);
+
   return (
     <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center">
-      <NoTodoCard />
+      {!todoList.length && <NoTodoCard />}
 
       {showModal && (
         <Modal heading="Add a To-do!" onClose={() => setShowModal(false)}>
-          <Form todoData={todoData} setTodoData={setTodoData} onSubmit={handleSubmit}/>
+          <Form
+            todoData={todoData}
+            setTodoData={setTodoData}
+            onSubmit={handleSubmit}
+          />
         </Modal>
       )}
+
+      {todoList.map((todo, i) => {
+        return (
+          <div>
+            {todo.id}
+            {todo.title}
+            {todo.description}
+          </div>
+        );
+      })}
 
       <span
         className="fixed bottom-6 cursor-pointer"
