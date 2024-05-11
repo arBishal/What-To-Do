@@ -33,6 +33,14 @@ export default function Body() {
 
     console.log(todoList);
     setShowModal(false);
+
+    setTodoData({
+      id: "",
+      title: "",
+      description: "",
+      priority: "",
+      time: "",
+    });
   };
 
   // console.log(todoList);
@@ -55,11 +63,10 @@ export default function Body() {
         return (
           <TodoCard
             todo={todo}
-            index={i}
             title={todo.title}
             description={todo.description}
             priority={todo.priority}
-            showModal={showModal}
+            setTodoData={setTodoData}
             setShowModal={setShowModal}
           />
         );

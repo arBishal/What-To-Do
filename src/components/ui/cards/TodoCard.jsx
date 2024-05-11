@@ -5,13 +5,18 @@ import { Capsule } from "./Capsule";
 
 export default function TodoCard({
   todo,
-  index,
   title,
   description,
   priority,
-  showModal,
+  setTodoData,
   setShowModal,
 }) {
+
+    const handleEdit = () => {
+        setTodoData(todo);
+        setShowModal(true);
+    }
+
   if (description === "") {
     const noDescription = true;
   }
@@ -24,7 +29,7 @@ export default function TodoCard({
             <Capsule priority={priority}>{priority}</Capsule>
           </span>
           <span
-            onClick={() => setShowModal(true)}
+            onClick={handleEdit}
             className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
           >
             <EditIcon />
