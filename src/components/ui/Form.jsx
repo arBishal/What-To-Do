@@ -3,40 +3,44 @@ import { Textarea } from "./Textarea";
 import { Dropdown } from "./Dropdown";
 import { Button } from "./Button";
 
-export const Form = ({ }) => {
+export const Form = ({ todoData, setTodoData, onSubmit }) => {
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
+    setTodoData({
+      ...todoData,
+      [name]: value,
+    });
   };
 
   return (
-    <form className="flex flex-col gap-4 items-center justify-center ">
+    <form onSubmit={onSubmit} className="flex flex-col gap-4 items-center justify-center">
       <Input
         label="Title"
         name="title"
         onChange={handleChange}
-        value=""
+        value={todoData.title}
         placeholder="Enter a Title"
       />
       <Textarea
         label="Description"
         name="description"
         onChange={handleChange}
-        value=""
+        value={todoData.description}
         placeholder="Add a short Description"
       />
       <Dropdown
         label="Priority"
         name="priority"
         onChange={handleChange}
-        value=""
+        value={todoData.priority}
         options={[
           { label: "High", value: "high" },
           { label: "Medium", value: "medium" },
           { label: "Low", value: "low" },
         ]}
       />
-      <Button>Save</Button>
+      <Button type="submit">Save</Button>
     </form>
   );
 };

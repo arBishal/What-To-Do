@@ -30,7 +30,6 @@ export default function Navbar() {
 
   // specify greetings based on hour
   let hour = date.getHours();
-  console.log(hour);
   let greetings = "";
   if (hour > 18 || hour < 6) greetings = "Hey there, Moonflower!";
   else greetings = "Hey there, Sunflower!";
