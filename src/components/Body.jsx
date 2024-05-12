@@ -8,7 +8,7 @@ import TodoCard from "./ui/cards/TodoCard";
 
 export default function Body() {
   const [todoData, setTodoData] = useState({
-    id: "",
+    id: 0,
     title: "",
     description: "",
     priority: "",
@@ -19,29 +19,45 @@ export default function Body() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    let newTodo = {};
+    
+    if(todoData.id===0)
+      {
+        newTodo = {
+          ...todoData,
+          id: todoList.length>0 ? todoList[todoList.length - 1].id + 1 : 1,
+          time: new Date(),
+        };
 
-    setTodoData({
-      ...todoData,
-      id: todoList.length + 1,
-      time: new Date(),
-    });
+        setTodoData(newTodo);
+        setTodoList([...todoList, newTodo]);
+      }
 
-    console.log({ todoData });
+    else
+    {
+      const newTodoList = todoList;
+      newTodoList.splice(todoData.id - 1, 1, todoData);
+      setTodoList(newTodoList);
+    }
 
-    const newTodoList = [...todoList, todoData];
-    setTodoList(newTodoList);
+    handleClose();
+  };
 
+  const handleClose = () => {
+    console.log(todoData);
     console.log(todoList);
-    setShowModal(false);
-
+    
     setTodoData({
-      id: "",
+      id: 0,
       title: "",
       description: "",
       priority: "",
       time: "",
     });
-  };
+
+    setShowModal(false);
+  }
 
   // console.log(todoList);
 
@@ -50,7 +66,7 @@ export default function Body() {
       {!todoList.length && <NoTodoCard />}
 
       {showModal && (
-        <Modal heading="Add a To-do!" onClose={() => setShowModal(false)}>
+        <Modal heading="Add a To-do!" onClose={handleClose}>
           <Form
             todoData={todoData}
             setTodoData={setTodoData}
