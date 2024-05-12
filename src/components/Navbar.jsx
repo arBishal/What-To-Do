@@ -65,29 +65,46 @@ export default function Navbar() {
           <div>
             <ul className="flex flex-col gap-2 list-disc list-inside">
               
+              <li className="font-bold">Progress Bar</li>
+
+              <li className="font-bold">
+                Dynamic Status
+                <ul className="font-light text-sm list-disc list-inside ml-6">
+                  <li>Based on completed todos</li>
+                </ul>
+              </li>
+
+              <li className="font-bold">Alerts</li>
+
               <li className="font-bold">
                 Filter To-Do's
                 <ul className="font-light text-sm list-disc list-inside ml-6">
-                  <li>By Status</li>
-                  <li>By Priority</li>
+                  <li>By status</li>
+                  <li>By priority</li>
                 </ul>
               </li>
 
               <li className="font-bold">
-                Dark/Light Theme
+                Dark Theme
                 <ul className="font-light text-sm list-disc list-inside ml-6">
                   <li>Based on current time</li>
-                  <li>Manual Toggle</li>
+                  <li>Manual toggle</li>
                 </ul>
               </li>
 
-              <li className="font-bold">
-                Add Sub-To-Do's
-              </li>
+              <li className="font-bold">Drag & Drop Rearrange</li>
 
               <li className="font-bold">
-                Add Deadline
+                Sorting
+                <ul className="font-light text-sm list-disc list-inside ml-6">
+                  <li>By date</li>
+                  <li>By priority</li>
+                </ul>
               </li>
+
+              <li className="font-bold">Sub-To-Do's</li>
+
+              <li className="font-bold">Deadline</li>
             </ul>
           </div>
         </Modal>
