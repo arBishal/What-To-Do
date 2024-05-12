@@ -16,13 +16,16 @@ export default function Body() {
     done: false,
     time: ""
   });
+
   const [todoList, setTodoList] = useState(() => {
     const saved = localStorage.getItem("todoList");
     const initialValue = JSON.parse(saved);
     return initialValue || [];
   });
+  
   const [showModal, setShowModal] = useState(false);
-
+  const [modalTitle, setModalTitle] = useState("");
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -45,6 +48,11 @@ export default function Body() {
 
     handleClose();
   };
+
+  const handleCreate = () => {
+    setModalTitle("Create a To-Do!");
+    setShowModal(true);
+  }
 
   const handleClose = () => {
     console.log(todoData);
@@ -70,7 +78,7 @@ export default function Body() {
     <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center gap-2">
       
       {showModal && (
-        <Modal heading="Add a To-do!" onClose={handleClose}>
+        <Modal heading={modalTitle} onClose={handleClose}>
           <Form
             todoData={todoData}
             setTodoData={setTodoData}
@@ -95,13 +103,14 @@ export default function Body() {
             todoList={todoList}
             setTodoList={setTodoList}
             setShowModal={setShowModal}
+            setModalTitle={setModalTitle}
           />
         );
       })}
 
       <span
         className="fixed bottom-6 cursor-pointer hover:scale-105"
-        onClick={() => setShowModal(true)}
+        onClick={handleCreate}
       >
         <PlusIcon />
       </span>

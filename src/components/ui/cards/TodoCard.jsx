@@ -13,9 +13,11 @@ export default function TodoCard({
   todoList,
   setTodoList,
   setShowModal,
+  setModalTitle
 }) {
   const handleEdit = () => {
     setTodoData(todo);
+    setModalTitle("Edit the To-Do!")
     setShowModal(true);
   };
 
