@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import NoTodoCard from "./ui/cards/NoTodoCard";
 import PlusIcon from "./ui/icons/PlusIcon";
@@ -16,7 +16,11 @@ export default function Body() {
     done: false,
     time: ""
   });
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(() => {
+    const saved = localStorage.getItem("todoList");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
   const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (e) => {
@@ -57,6 +61,10 @@ export default function Body() {
 
     setShowModal(false);
   };
+
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+  }, [todoList])
 
   return (
     <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center gap-2">
