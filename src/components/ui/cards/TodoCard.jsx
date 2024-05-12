@@ -29,6 +29,8 @@ export default function TodoCard({
     setTodoList(newTodoList);
   };
 
+  const handleDelete = () => {};
+
   if (description === "") {
     const noDescription = true;
   }
@@ -41,24 +43,33 @@ export default function TodoCard({
       }
     >
       <div className="w-full flex justify-between items-center gap-4">
+        
         <p className="text-xl font-semibold px-1">{title}</p>
+        
         <div className="flex items-center justify-start">
+          
           <span className="mr-3">
             <Capsule priority={priority}>{priority}</Capsule>
           </span>
+          
           <span
             onClick={handleEdit}
             className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
           >
             <EditIcon />
           </span>
+          
           <span
             onClick={handleDone}
             className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
           >
             <DoneIcon />
           </span>
-          <span className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer">
+          
+          <span
+            onClick={handleDelete}
+            className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
+          >
             <DeleteIcon />
           </span>
         </div>
