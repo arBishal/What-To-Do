@@ -100,7 +100,7 @@ export default function Body() {
       })}
 
       <span
-        className="fixed bottom-6 cursor-pointer"
+        className="fixed bottom-6 cursor-pointer hover:scale-105"
         onClick={() => setShowModal(true)}
       >
         <PlusIcon />

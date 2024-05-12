@@ -1,10 +1,10 @@
 export default function StatusCard({ todoList }) {
     let completeCount = 0;
-    let remainedCount = 0;
+    let remainingCount = 0;
 
     for(let i=0; i<todoList.length; i++) {
         if(todoList[i].done) completeCount++;
-        else remainedCount++;
+        else remainingCount++;
     }
 
     return (
@@ -16,7 +16,7 @@ export default function StatusCard({ todoList }) {
                 To-Do Completed: {completeCount} 
             </p>
             <p className="font-semibold">
-                To-Do Remained: {remainedCount}
+                To-Do Remaining: {remainingCount}
             </p>
         </div>
     );
