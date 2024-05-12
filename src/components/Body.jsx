@@ -5,6 +5,7 @@ import PlusIcon from "./ui/icons/PlusIcon";
 import { Form } from "./ui/Form";
 import { Modal } from "./ui/Modal";
 import TodoCard from "./ui/cards/TodoCard";
+import StatusCard from "./ui/cards/StatusCard";
 
 export default function Body() {
   const [todoData, setTodoData] = useState({
@@ -19,23 +20,19 @@ export default function Body() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     let newTodo = {};
-    
-    if(todoData.id===0)
-      {
-        newTodo = {
-          ...todoData,
-          id: todoList.length>0 ? todoList[todoList.length - 1].id + 1 : 1,
-          time: new Date(),
-        };
 
-        setTodoData(newTodo);
-        setTodoList([...todoList, newTodo]);
-      }
+    if (todoData.id === 0) {
+      newTodo = {
+        ...todoData,
+        id: todoList.length > 0 ? todoList[todoList.length - 1].id + 1 : 1,
+        time: new Date(),
+      };
 
-    else
-    {
+      setTodoData(newTodo);
+      setTodoList([...todoList, newTodo]);
+    } else {
       const newTodoList = todoList;
       newTodoList.splice(todoData.id - 1, 1, todoData);
       setTodoList(newTodoList);
@@ -47,7 +44,7 @@ export default function Body() {
   const handleClose = () => {
     console.log(todoData);
     console.log(todoList);
-    
+
     setTodoData({
       id: 0,
       title: "",
@@ -57,14 +54,11 @@ export default function Body() {
     });
 
     setShowModal(false);
-  }
-
-  // console.log(todoList);
+  };
 
   return (
-    <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center">
-      {!todoList.length && <NoTodoCard />}
-
+    <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center gap-2">
+      
       {showModal && (
         <Modal heading="Add a To-do!" onClose={handleClose}>
           <Form
@@ -74,6 +68,10 @@ export default function Body() {
           />
         </Modal>
       )}
+
+      {!todoList.length && <NoTodoCard />}
+
+      {todoList.length>0 && <StatusCard todoList={todoList} />}
 
       {todoList.map((todo, i) => {
         return (
