@@ -22,13 +22,13 @@ export default function TodoCard({
   };
 
   const handleDone = () => {
-    setTodoData({
-      ...todo,
-      done: true,
-    });
-    const doneTodoList = todoList;
-    doneTodoList.splice(todoData.id - 1, 1, todoData);
-    setTodoList(doneTodoList);
+    // setTodoData({
+    //   ...todo,
+    //   done: true,
+    // });
+    // const doneTodoList = todoList;
+    // doneTodoList.splice(todoData.id - 1, 1, todoData);
+    // setTodoList(doneTodoList);
   };
 
   const handleDelete = () => {
