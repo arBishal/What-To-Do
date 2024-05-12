@@ -24,12 +24,17 @@ export default function TodoCard({
       ...todo,
       done: true,
     });
-    const newTodoList = todoList;
-    newTodoList.splice(todoData.id - 1, 1, todoData);
-    setTodoList(newTodoList);
+    const doneTodoList = todoList;
+    doneTodoList.splice(todoData.id - 1, 1, todoData);
+    setTodoList(doneTodoList);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    const deleteTodoList = todoList.filter((delTodo) => {
+      return delTodo.id != todo.id;
+    });
+    setTodoList(deleteTodoList);
+  };
 
   if (description === "") {
     const noDescription = true;
