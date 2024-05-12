@@ -8,20 +8,38 @@ export default function TodoCard({
   title,
   description,
   priority,
+  todoData,
   setTodoData,
+  todoList,
+  setTodoList,
   setShowModal,
 }) {
+  const handleEdit = () => {
+    setTodoData(todo);
+    setShowModal(true);
+  };
 
-    const handleEdit = () => {
-        setTodoData(todo);
-        setShowModal(true);
-    }
+  const handleDone = () => {
+    setTodoData({
+      ...todo,
+      done: true,
+    });
+    const newTodoList = todoList;
+    newTodoList.splice(todoData.id - 1, 1, todoData);
+    setTodoList(newTodoList);
+  };
 
   if (description === "") {
     const noDescription = true;
   }
   return (
-    <div className="max-w-screen-md w-full divide-y text-black p-4 bg-white border-[1px] rounded-lg flex flex-col justify-center items-center gap-2">
+    <div
+      className={
+        todoData.status
+          ? "max-w-screen-md w-full divide-y text-neutral-500 p-4 bg-neutral-50 border-[1px] rounded-lg flex flex-col justify-center items-center gap-2"
+          : "max-w-screen-md w-full divide-y text-black p-4 bg-white border-[1px] rounded-lg flex flex-col justify-center items-center gap-2"
+      }
+    >
       <div className="w-full flex justify-between items-center gap-4">
         <p className="text-xl font-semibold px-1">{title}</p>
         <div className="flex items-center justify-start">
@@ -34,7 +52,10 @@ export default function TodoCard({
           >
             <EditIcon />
           </span>
-          <span className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer">
+          <span
+            onClick={handleDone}
+            className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
+          >
             <DoneIcon />
           </span>
           <span className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer">

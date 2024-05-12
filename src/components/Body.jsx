@@ -13,7 +13,8 @@ export default function Body() {
     title: "",
     description: "",
     priority: "",
-    time: "",
+    done: false,
+    time: ""
   });
   const [todoList, setTodoList] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -50,7 +51,8 @@ export default function Body() {
       title: "",
       description: "",
       priority: "",
-      time: "",
+      done: false,
+      time: ""
     });
 
     setShowModal(false);
@@ -80,7 +82,10 @@ export default function Body() {
             title={todo.title}
             description={todo.description}
             priority={todo.priority}
+            todoData={todoData}
             setTodoData={setTodoData}
+            todoList={todoList}
+            setTodoList={setTodoList}
             setShowModal={setShowModal}
           />
         );
