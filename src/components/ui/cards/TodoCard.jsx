@@ -33,7 +33,7 @@ export default function TodoCard({
 
   const handleDelete = () => {
     const deleteTodoList = todoList.filter((delTodo) => {
-      return delTodo.id != todo.id;
+      return delTodo.id !== todo.id;
     });
     setTodoList(deleteTodoList);
   };

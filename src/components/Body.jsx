@@ -20,6 +20,7 @@ export default function Body() {
   const [todoList, setTodoList] = useState(() => {
     const saved = localStorage.getItem("todoList");
     const initialValue = JSON.parse(saved);
+    console.log("initialize state", initialValue);
     return initialValue || [];
   });
   
@@ -40,10 +41,15 @@ export default function Body() {
 
       setTodoData(newTodo);
       setTodoList([...todoList, newTodo]);
+
+      console.log("new todo created");
     } else {
-      const newTodoList = todoList;
-      newTodoList.splice(todoData.id - 1, 1, todoData);
+      const newTodoList = todoList.map((todo) => {
+        return todo.id===todoData.id ? todoData : todo;
+      });
       setTodoList(newTodoList);
+
+      console.log("existing todo edited");
     }
 
     handleClose();
@@ -55,9 +61,6 @@ export default function Body() {
   }
 
   const handleClose = () => {
-    console.log(todoData);
-    console.log(todoList);
-
     setTodoData({
       id: 0,
       title: "",
@@ -73,6 +76,8 @@ export default function Body() {
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todoList));
   }, [todoList])
+
+  console.log("in the body", todoList);
 
   return (
     <div className="bg-neutral-50 w-full h-full px-6 pb-4 pt-24 sm:pt-20 flex flex-col justify-start items-center gap-2">
