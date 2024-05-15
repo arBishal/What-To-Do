@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "./ui/Modal";
+import wipImage from "../resources/work-in-progress.png";
 
 export default function Navbar() {
   // build todays date
@@ -62,16 +63,13 @@ export default function Navbar() {
 
       {showModal && (
         <Modal heading="I Know What To-Do!" onClose={() => setShowModal(false)}>
-          <div>
-            <ul className="flex flex-col gap-2 list-disc list-inside">
+
+            <ul className="flex flex-col md:grid md:grid-cols-3 gap-2 list-disc list-inside">
               
               <li className="font-bold">Progress Bar</li>
 
               <li className="font-bold">
                 Dynamic Status
-                <ul className="font-light text-sm list-disc list-inside ml-6">
-                  <li>Based on completed todos</li>
-                </ul>
               </li>
 
               <li className="font-bold">Alerts</li>
@@ -92,8 +90,6 @@ export default function Navbar() {
                 </ul>
               </li>
 
-              <li className="font-bold">Drag & Drop Rearrange</li>
-
               <li className="font-bold">
                 Sorting
                 <ul className="font-light text-sm list-disc list-inside ml-6">
@@ -102,11 +98,15 @@ export default function Navbar() {
                 </ul>
               </li>
 
+              <li className="font-bold">Drag & Drop</li>
+
               <li className="font-bold">Sub-To-Do's</li>
 
               <li className="font-bold">Deadline</li>
             </ul>
-          </div>
+
+            <img src={wipImage} alt="work in progress" className="w-1/4 min-w-24 m-auto"/>
+
         </Modal>
       )}
     </>
