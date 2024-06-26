@@ -38,9 +38,6 @@ export default function TodoCard({
     setTodoList(deleteTodoList);
   };
 
-  if (description === "") {
-    const noDescription = true;
-  }
   return (
     <div
       className={
@@ -66,12 +63,12 @@ export default function TodoCard({
             <EditIcon />
           </span>
           
-          <span
+          {/* <span
             onClick={handleDone}
             className="text-neutral-500 hover:text-neutral-900 text-4xl p-1 hover:bg-neutral-100 hover:rounded-full cursor-pointer"
           >
             <DoneIcon />
-          </span>
+          </span> */}
           
           <span
             onClick={handleDelete}
