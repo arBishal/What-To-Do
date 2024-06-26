@@ -43,22 +43,30 @@ export default function Navbar() {
   return (
     <>
       <div className="border-b-[1px] bg-white w-full px-6 py-4 flex justify-center align-middle fixed">
-        <div className="max-w-screen-md w-full text-black flex flex-row gap-2 items-center justify-between">
+        
+        <div className="max-w-screen-md w-full text-black flex flex-row sm:grid sm:grid-cols-3 gap-2 items-center justify-between">
+          
           <span
             className="font-extrabold text-xl sm:text-2xl text-center order-1 sm:order-2 cursor-pointer"
             onClick={() => setShowModal(true)}
           >
             WhatToDo?
           </span>
+          
           <div className="flex flex-col justify-center items-end sm:contents order-2">
-            <span className="mt-1 p-0 text-sm sm:text-base text-right order-2 sm:order-1">
+            
+            <span className="mt-1 p-0 text-sm sm:text-base text-right sm:text-left order-2 sm:order-1">
               {greetings}
             </span>
+            
             <span className="mt-1 p-0 text-sm sm:text-base text-right order-3">
               {today}
             </span>
+
           </div>
+
         </div>
+      
       </div>
 
       {showModal && (
