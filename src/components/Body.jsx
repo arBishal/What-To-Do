@@ -6,6 +6,7 @@ import { Form } from "./ui/Form";
 import { Modal } from "./ui/Modal";
 import TodoCard from "./ui/cards/TodoCard";
 import StatusCard from "./ui/cards/StatusCard";
+import ControlPanel from "./ui/cards/ControlPanel";
 
 export default function Body() {
   const [todoData, setTodoData] = useState({
@@ -95,6 +96,7 @@ export default function Body() {
       {!todoList.length && <NoTodoCard />}
 
       {todoList.length>0 && <StatusCard todoList={todoList} />}
+      {todoList.length>0 && <ControlPanel todoList={todoList} />}
 
       {todoList.map((todo, i) => {
         return (
